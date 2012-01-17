@@ -4,6 +4,8 @@ class truth::enforcer {
     ensure => "present",
   }
 
+  include aptsetup
+
   if has_role("webserver") {
     include role::webserver
     Group["puppet"] -> Class["role::webserver"] 
