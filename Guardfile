@@ -39,7 +39,9 @@ end
 # This block simply calls vagrant provision via a shell
 # And shows the output
 def vagrant_provision
-  IO.popen("vagrant provision && rake validate") do |output|
+  IO.popen("vagrant box add lucid64 ./package.box && " + 
+           "vagrant provision && rake validate &&" + 
+	   "vagrant box remove lucid64") do |output|
     while line = output.gets do
       puts line
     end

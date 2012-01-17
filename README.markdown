@@ -287,3 +287,9 @@ For the demo project, I only call `vagrant provision`, but this can of course be
   - have it start from a clean machine when all tests pass
 2. Turn this into a guard-vagrant gem, to monitor files and tests
 
+#Note: You need to create a package.box using the following command before running the test.
+
+ $ vagrant box add lucid64 http://files.vagrantup.com/lucid64.box
+ $ vagrant package --vagrantfile Vagrantfile
+ $ vagrant box remove lucid64
+
